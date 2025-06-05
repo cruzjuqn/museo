@@ -6,27 +6,37 @@
   <title>Museo Bellas Artes</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="estilos/nav-responsive.css">
   <link rel="stylesheet" href= "estilos/estilos.css">
   <link rel="stylesheet" href="estilos/footer.css">
   <link rel="stylesheet" href="estilos/nav-responsive.css">
 </head>
 <body>
   <div class="fondo">
-    <div class="overlay"></div>
-
     <div class="menu">
     <div class="logo">
-    <i class="fas fa-landmark"></i>Museo
-  
-</div>
-      <nav>
-        <a href="noticias.html">NOTICIAS</a>
-        <a href="coleccion.html">COLECCIÓN</a>
-        <a href="exhibiciones.html">EXHIBICIONES</a>
-        <a href="agenda.html">AGENDA</a>
-        <a href="museo.html">MUSEO</a>
-      </nav>
+      <i class="fas fa-landmark"></i> Museo
     </div>
+
+    <input type="checkbox" id="menu-toggle" hidden>
+
+    <label for="menu-toggle" class="menu-icon">
+      <i class="fas fa-bars"></i>
+    </label>
+
+    <nav class="nav-links">
+      <label for="menu-toggle" class="close-btn">
+        <i class="fas fa-times"></i>
+      </label>
+      <a href="index.html">INICIO</a>
+      <a href="noticias.html">NOTICIAS</a>
+      <a href="coleccion.html">COLECCIÓN</a>
+      <a href="exhibiciones.html">EXHIBICIONES</a>
+      <a href="agenda.html">AGENDA</a>
+      <a href="museo.html">MUSEO</a>
+    </nav>
+  </div>
+
     <div class="contenido">
       <h1>Lo invisible del Arte</h1>
       <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor eos natus at necessitatibus deleniti esse quisquam sed perspiciatis quam officiis doloremque est voluptatibus rerum pariatur sequi, eligendi illum deserunt. Natus.</p>

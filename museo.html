@@ -4,20 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="estilos/museo.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="estilos/footer.css">
     <link rel="stylesheet" href="estilos/nav-responsive.css">
+    <link rel="stylesheet" href="estilos/museo.css">
 </head>
 <body>
      <div class="menu">
     <div class="logo">
-      <i class="fas fa-landmark"></i>Museo
+      <i class="fas fa-landmark"></i> Museo
     </div>
-    <nav>
+
+    <input type="checkbox" id="menu-toggle" hidden>
+
+    <label for="menu-toggle" class="menu-icon">
+      <i class="fas fa-bars"></i>
+    </label>
+
+    <nav class="nav-links">
+      <label for="menu-toggle" class="close-btn">
+        <i class="fas fa-times"></i>
+      </label>
+      <a href="index.html">INICIO</a>
       <a href="noticias.html">NOTICIAS</a>
-      <a href="">COLECCIÓN</a>
+      <a href="coleccion.html">COLECCIÓN</a>
       <a href="exhibiciones.html">EXHIBICIONES</a>
-      <a href="">AGENDA</a>
+      <a href="agenda.html">AGENDA</a>
       <a href="museo.html">MUSEO</a>
     </nav>
   </div>

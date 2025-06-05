@@ -69,19 +69,3 @@ iframe {
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* Responsive para menú vertical en móviles */
-@media (max-width: 768px) {
-  .menu {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  nav {
-    margin-top: 10px;
-  }
-
-  nav a {
-    display: block;
-    margin: 8px 0;
-  }
-}
