@@ -4,8 +4,149 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="estilos.css">
+    <style>
+    /* Estilo general */
+body {
+  margin: 0;
+  background-color: #000;
+  color: #fff;
+  line-height: 1.6;
+  overscroll-behavior: none;
+}
+
+
+/* Contenedor principal */
+.contenedor {
+  max-width: 1100px;
+  margin: auto;
+  padding: 40px 20px;
+  animation: fadeIn 1s ease;
+}
+
+/* Titulares */
+h2 {
+  color: #ff0040;
+  font-size: 28px;
+  padding-left: 12px;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+/* Textos */
+p {
+  color: #ddd;
+  font-size: 16px;
+}
+
+/* Galería */
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 18px;
+  margin-top: 20px;
+}
+
+.galeria img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border: 2px solid #ff0040;
+  border-radius: 10px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.galeria img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #ff0040;
+}
+
+/* Mapa */
+iframe {
+  width: 100%;
+  height: 300px;
+  border: none;
+  border-radius: 10px;
+  margin-top: 15px;
+  box-shadow: 0 0 10px #ff0040;
+}
+
+/* Animación de aparición */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive para menú vertical en móviles */
+@media (max-width: 768px) {
+  .menu {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav {
+    margin-top: 10px;
+  }
+
+  nav a {
+    display: block;
+    margin: 8px 0;
+  }
+}
+
+    </style>
 </head>
 <body>
-    
+     <div class="menu">
+    <div class="logo">
+      <i class="fas fa-landmark"></i>Museo
+    </div>
+    <nav>
+      <a href="#">NOTICIAS</a>
+      <a href="#">COLECCIÓN</a>
+      <a href="#">EXHIBICIONES</a>
+      <a href="#">AGENDA</a>
+      <a href="museo.html">MUSEO</a>
+    </nav>
+  </div>
+
+  <!-- Contenido principal -->
+  <div class="contenedor">
+    <!-- Información general -->
+    <h2>Información del Museo</h2>
+    <p>
+      El Museo Metropolitano de Cultura Moderna es un espacio dedicado a la difusión del arte, la historia y la tecnología.
+      Abierto al público desde 1982, ofrece experiencias educativas e interactivas para todas las edades.
+    </p>
+
+    <!-- Historia -->
+    <h2>Nuestra Historia</h2>
+    <p>
+      Fundado en los años 80 como una iniciativa para revitalizar el casco histórico de la ciudad, el museo comenzó con una
+      colección de piezas arqueológicas y se expandió hacia exposiciones de arte moderno, ciencia y cultura digital.
+      En las últimas décadas ha incorporado tecnología para crear experiencias inmersivas e inclusivas para todo tipo de público.
+    </p>
+
+    <!-- Ubicación -->
+    <h2>Ubicación</h2>
+    <p>Dirección: Av. Cultura 1234, Ciudad Central, País.</p>
+    <iframe 
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.194802482622!2d-122.41941548468267!3d37.77492927975938!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085809cbd7e35c3%3A0x1f42959ccf927dbb!2sSan+Francisco%2C+CA%2C+EE.+UU.!5e0!3m2!1ses!2sar!4v1667844841472!5m2!1ses!2sar" 
+      allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+
+    <!-- Galería -->
+    <h2>Galería del Museo</h2>
+    <div class="galeria">
+      <img src="https://via.placeholder.com/400x200?text=Sala+1" alt="Sala 1">
+      <img src="https://via.placeholder.com/400x200?text=Exposición+de+arte" alt="Arte">
+      <img src="https://via.placeholder.com/400x200?text=Zona+interactiva" alt="Zona interactiva">
+      <img src="https://via.placeholder.com/400x200?text=Vista+nocturna" alt="Exterior de noche">
+      <img src="https://via.placeholder.com/400x200?text=Tecnología+y+ciencia" alt="Ciencia">
+      <img src="https://via.placeholder.com/400x200?text=Recorrido+guiado" alt="Guía">
+    </div>
+  </div>
+
 </body>
 </html>
