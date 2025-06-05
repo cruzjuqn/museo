@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Exhibiciones - Museo</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Estilos base */
+    body {
+      margin: 0;
+      background-color: #000;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+
+    .menu {
+      background-color: #000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      border-bottom: 2px solid #ff0040;
+    }
+
+    .logo {
+      font-size: 24px;
+      color: #ff0040;
+      font-weight: bold;
+    }
+
+    .logo i {
+      margin-right: 8px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 10px;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #ff0040;
+    }
+
+    /* Contenedor de exhibiciones */
+    .exhibiciones {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      padding: 30px;
+    }
+
+    .exhibicion {
+      background-color: #111;
+      border: 1px solid #ff0040;
+      border-radius: 8px;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .exhibicion:hover {
+      transform: scale(1.03);
+    }
+
+    .exhibicion img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .exhibicion h3 {
+      margin: 10px;
+      color: #ff0040;
+    }
+
+    .exhibicion p {
+      margin: 0 10px 10px;
+      color: #ddd;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .exhibiciones {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .exhibiciones {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Menú de navegación -->
+  <div class="menu">
+    <div class="logo">
+      <i class="fas fa-landmark"></i>Museo
+    </div>
+    <nav>
+      <a href="#">NOTICIAS</a>
+      <a href="#">COLECCIÓN</a>
+      <a href="#">EXHIBICIONES</a>
+      <a href="#">AGENDA</a>
+      <a href="museo.html">MUSEO</a>
+    </nav>
+  </div>
+
+  <!-- Sección de exhibiciones -->
+  <section class="exhibiciones" id="grid-exhibiciones">
+    <!-- Los elementos se generan por JS -->
+  </section>
+
+  <!-- JS interno -->
+  <script>
+    const exhibiciones = [
+      { titulo: "Faraones del Nilo", descripcion: "Una mirada a los tesoros del antiguo Egipto.", imagen: "https://media.istockphoto.com/id/484234714/es/vector/ejemplo-de-azul-grunge-retro-aislado-de-la-firma.jpg?s=612x612&w=0&k=20&c=3lkz85_0ynUnU4P8UKyZ1bRVabYLfJOEPxYJB-I7N1E=" },
+      { titulo: "Arte Digital", descripcion: "Interacción y creatividad del siglo XXI.", imagen: "https://media.istockphoto.com/id/484234714/es/vector/ejemplo-de-azul-grunge-retro-aislado-de-la-firma.jpg?s=612x612&w=0&k=20&c=3lkz85_0ynUnU4P8UKyZ1bRVabYLfJOEPxYJB-I7N1E=" },
+      { titulo: "Naturaleza Viva", descripcion: "Exposición inmersiva sobre ecosistemas.", imagen: "https://media.istockphoto.com/id/484234714/es/vector/ejemplo-de-azul-grunge-retro-aislado-de-la-firma.jpg?s=612x612&w=0&k=20&c=3lkz85_0ynUnU4P8UKyZ1bRVabYLfJOEPxYJB-I7N1E=" },
+      { titulo: "Esculturas Urbanas", descripcion: "Volumen, textura y expresión en acero.", imagen: "https://media.istockphoto.com/id/484234714/es/vector/ejemplo-de-azul-grunge-retro-aislado-de-la-firma.jpg?s=612x612&w=0&k=20&c=3lkz85_0ynUnU4P8UKyZ1bRVabYLfJOEPxYJB-I7N1E=" },
+      { titulo: "Fotografía Moderna", descripcion: "Instantáneas del presente contemporáneo.", imagen: "https://media.istockphoto.com/id/484234714/es/vector/ejemplo-de-azul-grunge-retro-aislado-de-la-firma.jpg?s=612x612&w=0&k=20&c=3lkz85_0ynUnU4P8UKyZ1bRVabYLfJOEPxYJB-I7N1E=" },
+      { titulo: "Ciencia en Movimiento", descripcion: "Exposición interactiva de física básica.", imagen:"https://media.istockphoto.com/id/484234714/es/vector/ejemplo-de-azul-grunge-retro-aislado-de-la-firma.jpg?s=612x612&w=0&k=20&c=3lkz85_0ynUnU4P8UKyZ1bRVabYLfJOEPxYJB-I7N1E=" },
+      { titulo: "Tejidos del Tiempo", descripcion: "Arte textil a través de las culturas.", imagen: "https://media.istockphoto.com/id/484234714/es/vector/ejemplo-de-azul-grunge-retro-aislado-de-la-firma.jpg?s=612x612&w=0&k=20&c=3lkz85_0ynUnU4P8UKyZ1bRVabYLfJOEPxYJB-I7N1E=" },
+      { titulo: "Espacio y Cosmos", descripcion: "Viaje visual al universo y más allá.", imagen: "https://media.istockphoto.com/id/484234714/es/vector/ejemplo-de-azul-grunge-retro-aislado-de-la-firma.jpg?s=612x612&w=0&k=20&c=3lkz85_0ynUnU4P8UKyZ1bRVabYLfJOEPxYJB-I7N1E=" },
+    ];
+
+    const grid = document.getElementById('grid-exhibiciones');
+
+    exhibiciones.forEach(item => {
+      const div = document.createElement('div');
+      div.className = 'exhibicion';
+      div.innerHTML = `
+        <img src="${item.imagen}" alt="${item.titulo}">
+        <h3>${item.titulo}</h3>
+        <p>${item.descripcion}</p>
+      `;
+      grid.appendChild(div);
+    });
+  </script>
+
+</body>
+</html>
