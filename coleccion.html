@@ -1,57 +1,224 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="estilos/coleccion.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Colección - Museo</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    /* RESET Y FUENTE */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    body {
+      background-color: #1a1a1a;
+      color: white;
+    }
+
+    /* MENU */
+    .menu {
+      background-color: rgba(0, 0, 0, 0.9);
+      color: white;
+      padding: 15px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo i {
+      color: #ff004c;
+    }
+
+    .menu-icon,
+    .close-btn {
+      font-size: 24px;
+      color: white;
+      cursor: pointer;
+      display: none;
+    }
+
+    #menu-toggle {
+      display: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #ff004c;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .menu-icon {
+        display: block;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        background-color: #111;
+        width: 70%;
+        height: 100vh;
+        padding-top: 60px;
+        gap: 30px;
+        transition: right 0.3s ease-in-out;
+      }
+
+      #menu-toggle:checked ~ .nav-links {
+        right: 0;
+      }
+
+      .close-btn {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        display: block;
+      }
+    }
+
+    /* SECCION COLECCION */
+    .coleccion {
+      padding: 100px 20px;
+      margin-top: 80px;
+    }
+
+    .titulo-coleccion {
+      text-align: center;
+      font-size: 2.8rem;
+      margin-bottom: 50px;
+      font-weight: bold;
+    }
+
+    .coleccion-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .obra {
+      background-color: rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+      transition: transform 0.3s ease;
+    }
+
+    .obra:hover {
+      transform: translateY(-5px);
+    }
+
+    .obra img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .detalle-obra {
+      padding: 20px;
+    }
+
+    .detalle-obra h3 {
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+    }
+
+    .detalle-obra p {
+      font-size: 1rem;
+      color: #ccc;
+    }
+  </style>
 </head>
 <body>
-    <div class="menu">
-     <div class="logo">
-  <i class="fas fa-landmark"></i>Museo
-  
-</div>
-      <nav>
-        <a href="index.html">INICIO</a>
-        <a href="#">COLECCIÓN</a>
-        <a href="exhibiciones.html">EXHIBICIONES</a>
-        <a href="#">AGENDA</a>
-        <a href="museo.html">MUSEO</a>
-      </nav>
+
+  <!-- MENÚ HAMBURGUESA -->
+  <div class="menu">
+    <div class="logo">
+      <i class="fas fa-landmark"></i> Museo
     </div>
-    <section class="coleccion" id="coleccion">
-  <div class="contenedor-coleccion">
-    <h2 class="titulo-coleccion">Colección Destacada</h2>
-    <div class="coleccion-grid">
-      
-      <article class="obra">
-        <img src="img/obra1.jpg" alt="Obra 1">
-        <div class="detalle-obra">
-          <h3>"El Nacimiento de Venus"</h3>
-          <p>Obra de Sandro Botticelli, siglo XV. Un ícono del Renacimiento italiano.</p>
-        </div>
-      </article>
 
-      <article class="obra">
-        <img src="img/obra2.jpg" alt="Obra 2">
-        <div class="detalle-obra">
-          <h3>"La persistencia de la memoria"</h3>
-          <p>Salvador Dalí, 1931. Representación emblemática del surrealismo.</p>
-        </div>
-      </article>
+    <input type="checkbox" id="menu-toggle" hidden>
 
-      <article class="obra">
-        <img src="img/obra3.jpg" alt="Obra 3">
-        <div class="detalle-obra">
-          <h3>"Las Meninas"</h3>
-          <p>Diego Velázquez, 1656. Una de las obras más influyentes del arte barroco.</p>
-        </div>
-      </article>
+    <label for="menu-toggle" class="menu-icon">
+      <i class="fas fa-bars"></i>
+    </label>
 
-    </div>
+    <nav class="nav-links">
+      <label for="menu-toggle" class="close-btn">
+        <i class="fas fa-times"></i>
+      </label>
+      <a href="noticias.html">NOTICIAS</a>
+      <a href="coleccion.html">COLECCIÓN</a>
+      <a href="exhibiciones.html">EXHIBICIONES</a>
+      <a href="#">AGENDA</a>
+      <a href="museo.html">MUSEO</a>
+    </nav>
   </div>
-</section>
+
+  <!-- COLECCIÓN -->
+  <section class="coleccion" id="coleccion">
+    <div class="contenedor-coleccion">
+      <h2 class="titulo-coleccion">Colección Destacada</h2>
+      <div class="coleccion-grid">
+        
+        <article class="obra">
+          <img src="img/obra1.jpg" alt="Obra 1">
+          <div class="detalle-obra">
+            <h3>"El Nacimiento de Venus"</h3>
+            <p>Obra de Sandro Botticelli, siglo XV. Un ícono del Renacimiento italiano.</p>
+          </div>
+        </article>
+
+        <article class="obra">
+          <img src="img/obra2.jpg" alt="Obra 2">
+          <div class="detalle-obra">
+            <h3>"La persistencia de la memoria"</h3>
+            <p>Salvador Dalí, 1931. Representación emblemática del surrealismo.</p>
+          </div>
+        </article>
+
+        <article class="obra">
+          <img src="img/obra3.jpg" alt="Obra 3">
+          <div class="detalle-obra">
+            <h3>"Las Meninas"</h3>
+            <p>Diego Velázquez, 1656. Una de las obras más influyentes del arte barroco.</p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
 
 </body>
 </html>

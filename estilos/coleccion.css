@@ -1,147 +1,88 @@
-/* Sección Colección */
-.coleccion {
-  background-color: #1a1a1a;
+/* ---------- MENÚ SUPERIOR ---------- */
+
+.menu {
+  background-color: rgba(0, 0, 0, 0.9);
   color: white;
-  padding: 100px 20px;
-}
-
-.titulo-coleccion {
-  text-align: center;
-  font-size: 2.8rem;
-  margin-bottom: 50px;
-  font-weight: bold;
-}
-
-.coleccion-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
-  max-width: 1200px;
-  margin: auto;
-}
-
-.obra {
-  background-color: rgba(255, 255, 255, 0.05);
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 0 10px rgba(0,0,0,0.5);
-  transition: transform 0.3s ease;
-}
-
-.obra:hover {
-  transform: translateY(-5px);
-}
-
-.obra img {
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
   width: 100%;
-  height: 250px;
-  object-fit: cover;
-  display: block;
+  top: 0;
+  z-index: 1000;
 }
 
-.detalle-obra {
-  padding: 20px;
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-.detalle-obra h3 {
-  font-size: 1.4rem;
-  margin-bottom: 10px;
+.logo i {
+  color: #ff004c;
 }
 
-.detalle-obra p {
-  font-size: 1rem;
-  color: #ccc;
+/* Menú desplegable en escritorio */
+.nav-links {
+  display: flex;
+  gap: 25px;
+  align-items: center;
 }
 
-* {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Roboto', sans-serif;
-    }
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
 
-    .fondo {
-      background: url('https://www.cultura.gob.ar/media/uploads/51017288816_92a517b177_k.jpg') no-repeat center center;
-      background-size: cover;
-      height: 100vh;
-      position: relative;
-      color: white;
-    }
+.nav-links a:hover {
+  color: #ff004c;
+}
 
+/* Iconos de hamburguesa y cerrar */
+.menu-icon,
+.close-btn {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+}
 
-    .overlay {
-      background-color: rgba(0, 0, 0, 0.4);
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      z-index: 1;
-    }
+/* Checkbox oculto */
+#menu-toggle {
+  display: none;
+}
 
-    .menu {
-      position: absolute;
-      top: 0;
-      width: 100%;
-      z-index: 2;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background-color: rgb(0, 0, 0);
-      padding: 10px 40px;
-    }
+/* ---------- RESPONSIVE (menú hamburguesa) ---------- */
+@media (max-width: 768px) {
+  .menu-icon {
+    display: block;
+  }
 
-    .menu .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      color: #ff0040;
-      font-weight: bold;
-      font-size: 20px;
-    }
+  .nav-links {
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    background-color: #111;
+    width: 70%;
+    height: 100vh;
+    padding-top: 60px;
+    gap: 30px;
+    transition: right 0.3s ease-in-out;
+  }
 
-    .menu nav a {
-      margin-left: 20px;
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    
-    .contenido {
-      position: relative;
-      z-index: 2;
-      padding: 150px 20px 20px;
-      text-align: center;
-    }
+  #menu-toggle:checked ~ .nav-links {
+    right: 0;
+  }
 
-    .contenido h1 {
-      font-size: 40px;
-      margin-bottom: 15px;
-    }
-
-    .contenido p {
-      max-width: 700px;
-      margin: auto;
-      margin-bottom: 30px;
-      font-size: 16px;
-      color: #ddd;
-    }
-
-    .contenido a {
-      padding: 10px 25px;
-      background-color: rgba(0, 0, 0, 0.2);
-      color: white;
-      border: 1px solid white;
-      text-decoration: none;
-      border-radius: 5px;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-
-    .menu, .contenido {
-      position: relative;
-      z-index: 2;
-    }
-
-    .contenido a:hover {
-      background-color: white;
-      color: black;
-    }
+  .close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: block;
+  }
+}
