@@ -1,0 +1,92 @@
+* {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .fondo {
+      background: url('https://www.cultura.gob.ar/media/uploads/51017288816_92a517b177_k.jpg') no-repeat center center;
+      background-size: cover;
+      height: 100vh;
+      position: relative;
+      color: white;
+    }
+
+
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.4);
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+
+    .menu {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      z-index: 2;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 10px 40px;
+    }
+
+    .menu .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #ff0040;
+      font-weight: bold;
+      font-size: 20px;
+    }
+
+    .menu nav a {
+      margin-left: 20px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    
+    .contenido {
+      position: relative;
+      z-index: 2;
+      padding: 150px 20px 20px;
+      text-align: center;
+    }
+
+    .contenido h1 {
+      font-size: 40px;
+      margin-bottom: 15px;
+    }
+
+    .contenido p {
+      max-width: 700px;
+      margin: auto;
+      margin-bottom: 30px;
+      font-size: 16px;
+      color: #ddd;
+    }
+
+    .contenido a {
+      padding: 10px 25px;
+      background-color: rgba(255, 255, 255, 0.2);
+      color: white;
+      border: 1px solid white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .menu, .contenido {
+      position: relative;
+      z-index: 2;
+    }
+
+    .contenido a:hover {
+      background-color: white;
+      color: black;
+    }
